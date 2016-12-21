@@ -6,6 +6,7 @@ class tools {
 	package {'glances': }
 	package {'openssh': }
 	package {'rsync': }
+	package {'ranger': }
 
 
 }

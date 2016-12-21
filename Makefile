@@ -1,7 +1,7 @@
 MODULEPATH=`pwd`/modules
 TEMPLATEDIR=`pwd`/templates
 ifdef DEBUG
-	DEBUG_FLAG= --noop
+	DEBUG_FLAG=--DEBUG
 endif
 export GNUPGHOME
 export GPG_AGENT_INFO
