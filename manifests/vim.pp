@@ -1,19 +1,19 @@
 class vim {
 
   package {'vim': } 
-  file { '/home/user/.vimrc/':
+  file { "${home_dir}/.vimrc/":
     ensure => file,
-    owner  => 'user',
-    group  => 'user',
+    owner  => $user,
+    group  => $user,
     mode   => '0644',
     source => 'puppet:///modules/vim/vimrc',
 
   }
 
-  file { '/home/user/.vim/':
+  file { "${home_dir}/.vim/":
     ensure  => file,
-    owner   => 'user',
-    group   => 'user',
+    owner   => $user,
+    group   => $user,
     mode    => '0644',
     recurse => true,
     source  => 'puppet:///modules/vim/dotvim',

@@ -3,10 +3,10 @@ class terminal {
   package{'lxterminal': }
   package{'rxvt-unicode': }
 
-  file {'/home/user/.Xdefaults':
+  file {"${home_dir}/.Xdefaults":
     ensure => file,
-    owner  => 'user',
-    group  => 'user',
+    owner  => $user,
+    group  => $user,
     mode   => '0644',
   }
 
@@ -22,7 +22,7 @@ class terminal {
   $lines.each | $line | {
     file_line  {"Adding line:${line}":
       ensure => present,
-      path   => '/home/user/.Xdefaults',
+      path   => "${home_dir}/.Xdefaults",
       line   => $line,
     }
 
