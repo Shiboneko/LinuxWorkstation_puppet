@@ -1,2 +1,5 @@
-  $home_dir = '/home/work'
-$user = 'work'
+  
+  Exec { path =>  [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ] }
+
+$home_dir = '/home/user'
+$user = 'user'
