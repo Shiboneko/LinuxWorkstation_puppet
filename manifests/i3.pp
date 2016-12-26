@@ -1,5 +1,6 @@
 class i3{
 
+  package {'compton': }
   Exec { path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ] }
 
   file { "${home_dir}/git/":
@@ -55,6 +56,16 @@ class i3{
     group => $user,
     mode => '0755',
     recurse => true,
+  }
+
+  file { "${home_dir}/.config/i3/i3lock-fancy/lock":
+    mode => '0755',
+  }
+
+
+  file { "${home_dir}/.config/i3/i3exit":
+    mode   => '0755',
+    source => 'puppet:///modules/i3/i3exit',
   }
 }
 
