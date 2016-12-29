@@ -49,6 +49,13 @@ class i3{
     recurse => true,
   }
 
+  file { "${home_dir}/.config/i3/i3blocks.conf":
+    ensure => file,
+    owner=> $user,
+    group => $user,
+    mode => '0644',
+    content => template('i3/i3blocks.conf.erb'),
+  }
 
   file { "${home_dir}/.config/i3/blocks/":
     ensure => directory,
