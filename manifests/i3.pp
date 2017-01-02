@@ -1,5 +1,6 @@
 class i3{
 
+  notify { $::sudo_user: }
   package {'compton': }
   Exec { path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ] }
 
@@ -58,10 +59,11 @@ class i3{
   }
 
   file { "${home_dir}/.config/i3/blocks/":
-    ensure => directory,
-    owner=> $user,
-    group => $user,
-    mode => '0755',
+    ensure  => directory,
+    owner   => $user,
+    group   => $user,
+    mode    => '0755',
+    source  => "puppet:///modules/i3/blocks",
     recurse => true,
   }
 
